@@ -1,5 +1,5 @@
-// Задача
-// Разработайте программу для нахождения минимального 
+// Задача 1
+// Разработайте программу для нахождения минимального
 // (максимального) значения среди элементов вектора.
 
 #include <iostream>
@@ -86,5 +86,6 @@ clock_t begin_par =  clock();
   clock_t end_par =  clock();
   time_spent_par += (double)(end_par - begin_par) / (CLOCKS_PER_SEC);
   printf("\nParallel work time is %.10f seconds, max elem = %i, min elem = %i", time_spent_par, max_par, min_par);
+free(r);
 return 0;
 }
