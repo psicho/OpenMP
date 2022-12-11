@@ -13,8 +13,8 @@ using namespace std;
 
 int main(){
 
-int n = 1410065408; // 10**10
-// int n = 1000000000; // 10**9
+// int n = 1410065408; // 10**10
+int n = 1000000000; // 10**9
 // int n = 1000000; // 10**6
 // int n = 1000; // 10**3
 
@@ -24,7 +24,10 @@ int n = 1410065408; // 10**10
 //int *res_par = (int*) calloc(n, sizeof(int));
 
 float h,S,x;
-int i;
+int i, a, b;
+
+a = 1;
+b = 5;
 h=(b-a) * 1.0 / n;
 S=0;
 
@@ -45,7 +48,7 @@ printf("\nSequential work time is %.10f seconds", time_spent);
 
 // Расчёт времени при параллельном выполнении
 clock_t begin_par =  clock();
-#pragma omp parallel for num_threads(10)
+#pragma omp parallel for num_threads(30)
 for(i=0;i<n-1;i++)
 {
   x=a+i*h;
@@ -56,8 +59,5 @@ clock_t end_par =  clock();
 time_spent_par += (double)(end_par - begin_par) / (CLOCKS_PER_SEC);
 printf("\nParallel work time is %.10f seconds", time_spent_par);
 
-free(a);
-free(b);
-free(res);
 return 0;
 }
