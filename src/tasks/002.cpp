@@ -12,8 +12,8 @@ using namespace std;
 
 int main(){
 
-int n = 1410065408; // 10**10
-// int n = 1000000000; // 10**9
+ int n = 1410065408; // 10**10
+//int n = 1000000000; // 10**9
 // int n = 1000000; // 10**6
 // int n = 1000; // 10**3
 
@@ -31,33 +31,29 @@ for(int i = 0; i < n; ++i) {
   b[i] = rand();
 }
 
-// Задаём переменную для поиска минимального и максимального значения в массиве
-//int min = r[0];
-//int max = r[0];
-//int max_sum = 0;
-//int min_par = r[0];
-//int max_par = r[0];
-//int max_sum_par = 0;
-
 // Расчет времени при последовательном выполнении
 clock_t begin =  clock();
 for(int i = 0; i < n; ++i)
 {
-    res[i] = a[i]*b[i]
+    res[i] = a[i]*b[i];
 }
 clock_t end =  clock();
 time_spent += (double)(end - begin) / (CLOCKS_PER_SEC);
-printf("\nSequential work time is %.10f seconds, max elem = %i, min elem = %i", time_spent, max, min);
+printf("\nSequential work time is %.10f seconds", time_spent);
 
 // Расчёт времени при параллельном выполнении
 clock_t begin_par =  clock();
 #pragma omp parallel for
   for(int i = 0; i < n; ++i)
   {
-    res_par[i] = a[i]*b[i]
+    res_par[i] = a[i]*b[i];
   }
   clock_t end_par =  clock();
   time_spent_par += (double)(end_par - begin_par) / (CLOCKS_PER_SEC);
-  printf("\nParallel work time is %.10f seconds, max elem = %i, min elem = %i", time_spent_par, max_par, min_par);
+  printf("\nParallel work time is %.10f seconds", time_spent_par);
+
+free(a);
+free(b);
+free(res);
 return 0;
 }
