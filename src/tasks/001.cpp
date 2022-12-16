@@ -25,8 +25,8 @@ int *r = (int*) calloc(n, sizeof(int));
 // free(r);
 
 // int r[N];
-double time_spent = 0.0;
-double time_spent_par = 0.0;
+double time_spent = 0.00000000;
+double time_spent_par = 0.00000000;
 
 // Генерация массива на 1000 случайный чисел
 for(int i = 0; i < n; ++i) {
