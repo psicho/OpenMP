@@ -24,8 +24,8 @@ int *b = (int*) calloc(n, sizeof(int));
 int *res = (int*) calloc(n, sizeof(int));
 int *res_par = (int*) calloc(n, sizeof(int));
 
-double time_spent = 0.0;
-double time_spent_par = 0.0;
+double time_spent = 0.00000000;
+double time_spent_par = 0.00000000;
 
 // Генерация двух векторов на n случайный чисел
 for(int i = 0; i < n; ++i) {
