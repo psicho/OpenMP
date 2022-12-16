@@ -15,7 +15,9 @@ int main(){
 
 // int n = 1410065408; // 10**10
 int n = 1000000000; // 10**9
+// int n = 100000000; // 10**8
 // int n = 1000000; // 10**6
+// int n = 100000; // 10**5
 // int n = 1000; // 10**3
 
 //int *a = (int*) calloc(n, sizeof(int));
@@ -31,8 +33,8 @@ b = 5;
 h=(b-a) * 1.0 / n;
 S=0;
 
-double time_spent = 0.0;
-double time_spent_par = 0.0;
+double time_spent = 0.00000000;
+double time_spent_par = 0.00000000;
 
 // Расчет времени при последовательном выполнении
 clock_t begin =  clock();
