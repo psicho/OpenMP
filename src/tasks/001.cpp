@@ -12,9 +12,11 @@ using namespace std;
 
 int main(){
 
-int n = 1410065408; // 10**10
-// int n = 1000000000; // 10**9
+// int n = 1410065408; // 10**10
+int n = 1000000000; // 10**9
+// int n = 100000000; // 10**8
 // int n = 1000000; // 10**6
+// int n = 100000; // 10**5
 // int n = 1000; // 10**3
 
 // int *r = NULL;
@@ -67,7 +69,7 @@ printf("\nSequential work time is %.10f seconds, max elem = %i, min elem = %i", 
 
 // Расчёт времени при параллельном выполнении
 clock_t begin_par =  clock();
-#pragma omp parallel for
+#pragma omp parallel for  num_threads(10)
   for(int i = 0; i < n; ++i)
   {
     if(r[i] > max_par)
