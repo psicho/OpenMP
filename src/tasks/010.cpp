@@ -13,11 +13,11 @@ using namespace std;
 
 int main(){
 
-int count_treads = 5;
+int count_treads = 50;
 
-// int n = 100000; // 10**5
+int n = 100000; // 10**5
 // int n = 10000; // 10**4
-int n = 1000; // 10**3
+// int n = 1000; // 10**3
 
 int *b = (int*) calloc(n+1, sizeof(int));
 int** a;
@@ -40,32 +40,32 @@ for(int i = 0; i < n; ++i) {
 }
 
 // Расчет времени при последовательном выполнении
-clock_t begin =  clock();
-for(int i = 0; i < n; ++i) {
-    b[i] = a[i][0];
-    for(int j = 0; j < n; ++j) {
-        if (a[i][j] < b[i]) {
-            b[i] = a[i][j];
-        }
-    }
-}
-max_sec = b[0];
-for (int i = 0; i < n; ++i) {
-    if (b[i] > max_sec) {
-        max_sec = b[i];
-    }
-}
-clock_t end =  clock();
-time_spent += (double)(end - begin) / (CLOCKS_PER_SEC);
-printf("\n Max Sequential num %i", max_sec);
-printf("\nSequential work time is %.10f seconds", time_spent);
+// clock_t begin =  clock();
+// for(int i = 0; i < n; ++i) {
+//     b[i] = a[i][0];
+//     for(int j = 0; j < n; ++j) {
+//         if (a[i][j] < b[i]) {
+//             b[i] = a[i][j];
+//         }
+//     }
+// }
+// max_sec = b[0];
+// for (int i = 0; i < n; ++i) {
+//     if (b[i] > max_sec) {
+//         max_sec = b[i];
+//     }
+// }
+// clock_t end =  clock();
+// time_spent += (double)(end - begin) / (CLOCKS_PER_SEC);
+// printf("\n Max Sequential num %i", max_sec);
+// printf("\nSequential work time is %.10f seconds", time_spent);
 
 // Расчёт времени при параллельном выполнении
 clock_t begin_par =  clock();
 #pragma omp parallel for num_threads(count_treads)
     for(int i = 0; i < n; ++i) {
         b[i] = a[i][0];
-        omp parallel for
+        #pragma omp parallel for num_threads(count_treads)
         for(int j = 0; j < n; ++j) {
             if (a[i][j] < b[i]) {
                 b[i] = a[i][j];
