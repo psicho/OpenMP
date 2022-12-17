@@ -13,10 +13,13 @@ using namespace std;
 
 int main(){
 
+int count_treads = 5
+
 // int n = 1410065408; // 10**10
-// int n = 1000000000; // 10**9
+int n = 1000000000; // 10**9
+// int n = 100000000; // 10**8
 // int n = 1000000; // 10**6
-int n = 10000; // 10**4
+// int n = 100000; // 10**5
 // int n = 1000; // 10**3
 
 int *b = (int*) calloc(n+1, sizeof(int));
@@ -29,8 +32,8 @@ for (int i = 0; i < n; i++) {
 
 int max_sec, max_par;
 
-double time_spent = 0.0;
-double time_spent_par = 0.0;
+double time_spent = 0.00000000;
+double time_spent_par = 0.00000000;
 
 // Генерация матрицы размерностью n x n из случайный чисел
 for(int i = 0; i < n; ++i) {
@@ -62,7 +65,7 @@ printf("\nSequential work time is %.10f seconds", time_spent);
 
 // Расчёт времени при параллельном выполнении
 clock_t begin_par =  clock();
-#pragma omp parallel for num_threads(10)
+#pragma omp parallel for num_threads(count_treads)
     for(int i = 0; i < n; ++i) {
         b[i] = a[i][0];
         for(int j = 0; j < n; ++j) {
@@ -72,7 +75,7 @@ clock_t begin_par =  clock();
         }
     }
 max_par = b[0];
-#pragma omp parallel for num_threads(10)
+#pragma omp parallel for num_threads(count_treads)
     for (int i = 0; i < n; ++i) {
         if (b[i] > max_par) {
             max_par = b[i];
