@@ -13,7 +13,7 @@ using namespace std;
 
 int main(){
 
-int count_treads = 5
+int count_treads = 5;
 
 // int n = 1410065408; // 10**10
 int n = 1000000000; // 10**9
